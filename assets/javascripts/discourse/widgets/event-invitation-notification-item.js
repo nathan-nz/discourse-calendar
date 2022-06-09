@@ -23,7 +23,16 @@ createWidgetFrom(
         description = this.description(data);
       }
 
-      return I18n.t(data.message, { description, username });
+      let translationKey = data.message;
+      // TODO: remove the _with_username translation when this widget is
+      // removed
+      if (
+        translationKey ===
+        "discourse_post_event.notifications.invite_user_predefined_attendance_notification"
+      ) {
+        translationKey += "_with_username";
+      }
+      return I18n.t(translationKey, { description, username });
     },
 
     icon(notificationName, data) {

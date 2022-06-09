@@ -173,6 +173,17 @@ function initializeDiscourseCalendar(api) {
     }
   );
 
+  if (api.registerUserMenuComponentForNotificationType) {
+    api.registerUserMenuComponentForNotificationType(
+      "event_reminder",
+      "user-menu/event-reminder-notification-item"
+    );
+    api.registerUserMenuComponentForNotificationType(
+      "event_invitation",
+      "user-menu/event-invitation-notification-item"
+    );
+  }
+
   function render($calendar, post) {
     $calendar = $calendar.empty();
 

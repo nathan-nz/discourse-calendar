@@ -21,7 +21,9 @@ createWidgetFrom(DefaultNotificationItem, "event-reminder-notification-item", {
       description = this.description(data);
     }
 
-    return I18n.t(data.message, { description, username });
+    // TODO: remember to remove translation keys when this widget
+    // is removed
+    return I18n.t(`${data.message}_html`, { description, username });
   },
 
   icon(notificationName, data) {
